@@ -1,114 +1,68 @@
 # Optimizing Arsenal's Formation: A Comparative Analysis with EPL's Big 6 Teams
 
-This repository contains the final project for the MSc Data Science program titled **"Optimizing Arsenal's Formation: A Comparative Analysis with EPL's Big 6 Teams"**. The project aims to enhance the strategic formation of Arsenal Football Club by comparing their tactics with other top teams in the English Premier League (EPL) and providing data-driven recommendations.
+## Project Overview
+
+This project analyzes Arsenal Football Club's formation strategies and compares them with the "Big 6" teams of the English Premier League (EPL): Manchester City, Manchester United, Liverpool, Chelsea, and Tottenham Hotspur. Using advanced machine learning techniques and statistical analysis, the study aims to provide data-driven insights to enhance Arsenal's tactical decisions and overall performance in the EPL.
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Motivation](#motivation)
-- [Objectives](#objectives)
-- [Methodology](#methodology)
-- [Results and Findings](#results-and-findings)
-- [Conclusions and Future Work](#conclusions-and-future-work)
-- [Installation and Usage](#installation-and-usage)
-- [References](#references)
-- [Acknowledgments](#acknowledgments)
+1. [Introduction](#introduction)
+2. [Dataset Collection](#dataset-collection)
+3. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+4. [Model Building](#model-building)
+    - [Support Vector Machine (SVM)](#support-vector-machine-svm)
+    - [Random Forest Model](#random-forest-model)
+    - [Gradient Boosting Model](#gradient-boosting-model)
+5. [Results](#results)
+6. [Conclusion and Future Work](#conclusion-and-future-work)
+7. [Installation](#installation)
 
-## Project Overview
 
-This project compares Arsenal Football Club's formation with those of the "Big 6" teams of the English Premier League (EPL)—Manchester City, Manchester United, Liverpool, Chelsea, and Tottenham Hotspur—in order to optimize it. Using advanced statistical metrics, match performance data, and tactical analysis, the study identifies important patterns, strengths, and weaknesses in Arsenal's current formation strategies in comparison to their rivals.
+## Introduction
 
-## Motivation
+The primary goal of this project is to evaluate and optimize Arsenal's formation strategy by comparing it with other top EPL teams. This is achieved using data-driven methods, including machine learning and predictive modeling, to assess different formations and player combinations to suggest optimal strategies.
 
-Achieving a competitive advantage in one of the toughest football leagues in the world is the driving force behind optimizing Arsenal's formation compared to the Premier League's Big 6 teams. With the EPL known for its intense competition, improving team performance using data-driven strategies is imperative. This research aims to provide Arsenal with practical strategies to adapt to different opponents and game situations, increase tactical adaptability, and make intelligent choices about player roles and positions.
+## Dataset Collection
 
-## Objectives
+The datasets were sourced from [FBref](https://fbref.com/), a reliable platform for football statistics. It includes data from Arsenal and the "Big 6" EPL teams for the 2023-2024 season, covering player statistics, team performance indicators, formations, and tactical data. Data preprocessing and cleaning were performed to ensure the accuracy and relevance of the analysis.
 
-The main objectives of the project are as follows:
+## Exploratory Data Analysis (EDA)
 
-1. **Data Collection and Preprocessing**: Collect and sanitize performance data from the major Premier League teams - Arsenal, Manchester City, Tottenham Hotspur, Manchester United, Chelsea, and Liverpool.
-2. **Data Categorization**: Organize the collected data into structured data frames for analysis.
-3. **Feature Engineering**: Prepare data for machine learning by encoding categorical variables and selecting relevant features.
-4. **Model Training and Evaluation**: Train predictive models to determine how different formations affect a team's performance.
-5. **Performance Analysis**: Evaluate the models' performance and identify the optimal formation for Arsenal.
-6. **Reporting**: Draft a comprehensive report providing the best formations and strategies that can improve Arsenal's performance.
+EDA was conducted to identify patterns, correlations, and anomalies in the data. Various visualizations, including histograms, density plots, and scatter plots, were used to understand player performance, team dynamics, and strategic decisions.
 
-## Methodology
+## Model Building
 
-The methodology of the project involves several key steps:
+Three machine learning models were employed to predict Arsenal's optimal formation based on historical match data:
 
-1. **Data Collection**: Data was collected from FBref, a well-known resource for in-depth football statistics, for the 2023-2024 season. The data includes performance metrics, formation data, and tactical decisions.
-   
-2. **Exploratory Data Analysis (EDA)**: EDA was conducted to understand the patterns, correlations, and anomalies in the dataset using various statistical and visualization techniques.
-   
-3. **Model Building**: Three machine learning models—Support Vector Machine (SVM), Random Forest, and Gradient Boosting Machine (GBM)—were employed to predict match outcomes and recommend optimal formations.
-   
-4. **Model Evaluation**: The models were evaluated using accuracy, precision, recall, and F1-score metrics to determine their effectiveness in predicting optimal formations.
+### Support Vector Machine (SVM)
 
-## Results and Findings
+The SVM model was used with various kernels (RBF, polynomial, and sigmoid) and hyperparameters tuned using `GridSearchCV`. The model aimed to find the optimal decision boundary that separates different classes to predict match outcomes.
 
-- **Support Vector Machine (SVM)**: The SVM model showed moderate predictive performance with an accuracy of 50%, indicating potential improvements in precision, recall, and F1-score.
-- **Random Forest Model**: The Random Forest model demonstrated lower accuracy (31.67%) and F1-score (21.78%), suggesting that further model tuning and data preprocessing are needed.
-- **Gradient Boosting Model**: The Gradient Boosting model also displayed low accuracy (30%) and F1-score (23.89%), highlighting the need for more sophisticated modeling techniques and feature engineering.
+### Random Forest Model
 
-Based on the findings, the project proposes an optimized formation for Arsenal that could enhance both offensive and defensive effectiveness.
+The Random Forest model, an ensemble learning technique, was used to build multiple decision trees and average their predictions to reduce overfitting and improve predictive accuracy.
 
-## Conclusions and Future Work
+### Gradient Boosting Model
 
-#### Conclusion
+The Gradient Boosting Model builds an ensemble of weaker learners, gradually enhancing prediction accuracy by correcting errors made by previous models. It is robust in handling complex, non-linear patterns in the data.
 
-The analysis of Arsenal's formation optimization through machine learning models—Support Vector Machine (SVM), Random Forest, and Gradient Boosting—revealed several challenges. Although the models provided some insights into potential optimal formations and tactical adjustments, their overall predictive power was limited, as evidenced by low accuracy, precision, recall, and F1-score metrics. The findings suggest that none of the models sufficiently capture the complex interplay of tactical decisions, player performance, and match dynamics in the English Premier League.
+## Results
 
-However, this research still serves as a valuable starting point for understanding the potential of data-driven approaches in optimizing football team strategies. The identification of the "4-3-3" formation as a potentially effective setup for Arsenal provides a preliminary direction for further exploration.
+- **SVM Model**: Achieved a test accuracy of 50% with optimized hyperparameters. Precision, recall, and F1-score were suboptimal, indicating limitations in capturing complex data patterns.
+- **Random Forest Model**: Showed an accuracy of 31.67% with low precision (17.78%) and F1-score (21.78%), suggesting overfitting or inadequate feature representation.
+- **Gradient Boosting Model**: Achieved an accuracy of 30%, with low precision (20.83%) and F1-score (23.89%), demonstrating inadequate performance on the given dataset.
 
-#### Future Work
+The Random Forest model predicted that the "4-3-3" formation is Arsenal's most frequently used and potentially optimal formation.
 
-To enhance the robustness and predictive capability of the models, several steps could be taken in future research:
+## Conclusion and Future Work
 
-1. **Improve Data Quality and Feature Engineering**: Future studies should focus on enriching the dataset with more comprehensive and granular features, including psychological factors, player fitness levels, real-time in-game decisions, and more detailed tactical metrics. Techniques like Principal Component Analysis (PCA) and Feature Importance Analysis could help in identifying the most impactful features.
+While the models provided some insights into formation trends, their overall predictive performance was limited. Future work should focus on enhancing data quality, feature engineering, and exploring more advanced machine learning models, such as deep learning or hybrid models, to better capture complex patterns.
 
-2. **Balancing Model Complexity and Overfitting**: Future models should strike a balance between complexity and interpretability. Techniques such as L1/L2 regularization, cross-validation, and Bayesian optimization for hyperparameter tuning could help in finding the optimal model configuration that reduces overfitting and improves generalization.
+## Installation
 
-3. **Explore Alternative or Hybrid Models**: Considering the limitations of the current models, future research could explore hybrid models that combine the strengths of multiple machine learning techniques. For instance, combining ensemble methods with deep learning architectures, like Convolutional Neural Networks (CNNs) or Recurrent Neural Networks (RNNs), might provide more accurate predictions.
+To run the project locally, clone the repository and install the necessary Python libraries:
 
-4. **Implement Advanced Modeling Techniques**: Deep learning frameworks such as Long Short-Term Memory (LSTM) networks or Graph Neural Networks (GNNs) could be particularly useful for modeling sequential data and player interactions, respectively. Additionally, advanced natural language processing (NLP) techniques could be utilized to analyze unstructured data, such as match commentary or player interviews, to gain deeper insights.
-
-5. **Incorporate Real-Time Data and Dynamic Analysis**: Incorporating real-time data analytics and dynamic analysis tools could provide a more nuanced understanding of team strategies and formations. This could involve integrating live match data feeds with predictive models to make real-time tactical recommendations.
-
-6. **Validation with Larger Datasets and Case Studies**: The findings from this study should be validated with larger datasets, potentially incorporating multiple seasons and a broader range of teams. Additionally, case studies focused on specific matches or tactical decisions could provide deeper insights and help refine the models further.
-
-By addressing these areas, future research can build upon the foundations laid in this project to develop more sophisticated and effective models for optimizing football team strategies in the English Premier League.
-
-## Installation and Usage
-
-To use the code provided in this repository:
-
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/yourusername/arsenal-formation-optimization.git
-    cd arsenal-formation-optimization
-    ```
-
-2. **Install the required dependencies**:
-    Make sure you have Python installed. Install the necessary libraries using pip:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Run the Python script**:
-    Execute the `final_project_1 (6).py` script to reproduce the results.
-    ```bash
-    python final_project_1 (6).py
-    ```
-
-## References
-
-Please refer to the final report for a comprehensive list of references used in this project.
-
-## Acknowledgments
-
-I would like to express my sincere thanks to my supervisor, John Evans, for his guidance and support throughout this project. Additionally, gratitude is extended to the University of Hertfordshire, my colleagues, and my family for their unwavering support.
-
----
-
-This project is submitted in partial fulfillment of the requirement for the degree of Master of Science in Data Science at the University of Hertfordshire.
+```bash
+git clone https://github.com/yourusername/arsenal-formation-optimization.git
+cd arsenal-formation-optimization
+pip install -r requirements.txt
